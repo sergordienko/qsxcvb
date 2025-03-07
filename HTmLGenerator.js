@@ -4,9 +4,9 @@ class HTMLGenerator {
         this.data = data;
     }
 
-    createHtmlContent( ) {
+    createHtmlContent( id = null ) {
         return `
-            <div class="ui vertical accordion sections scroll-box m-0" id="sports">
+            <div class="ui vertical accordion sections scroll-box m-0" id="${id ?? 'sports'}">
                 ${Object.entries(this.data.live_events)
                     .map(([kindsport, sportinfo]) => this.shouldRenderSport(sportinfo) ? this.generateSportBlock(kindsport, sportinfo) : '')
                     .join('')}
